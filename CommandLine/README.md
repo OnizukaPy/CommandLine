@@ -2,6 +2,7 @@
 
 ```bash
 dotnet new console -o CommandLine
+dotnet add package System.CommandLine --version 2.0.0-beta4.22272.1
 ```
 
 # Aggiungiamo un file README.md
@@ -114,15 +115,15 @@ Le classi da redarre sono:
 - `Repository.cs`: contiene i metodi per leggere e scrivere il file di configurazione
 
 ```csharp
-// Repository.cs
-using System.IO;
-using System.Text.Json;
-
 public static class Repository {
 
     public static CommandLineConfig LoadConfig(string filePath) {
         string jsonString = File.ReadAllText(filePath);
-        return JsonSerializer.Deserialize<CommandLineConfig>(jsonString);
+        var config = JsonSerializer.Deserialize<CommandLineConfig>(jsonString);
+        if (config == null) {
+            throw new InvalidOperationException("Deserialization returned null.");
+        }
+        return config;
     }
 }
 ```
