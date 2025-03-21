@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLine", "CommandLine\CommandLine.csproj", "{7E21F4EE-C3D8-4D34-8E03-475EED571E62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArgAnalyzer", "ArgAnalyzer\ArgAnalyzer.csproj", "{F7886022-6DC8-49C0-83B7-E9DBC98F1B25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{7E21F4EE-C3D8-4D34-8E03-475EED571E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E21F4EE-C3D8-4D34-8E03-475EED571E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E21F4EE-C3D8-4D34-8E03-475EED571E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7886022-6DC8-49C0-83B7-E9DBC98F1B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7886022-6DC8-49C0-83B7-E9DBC98F1B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7886022-6DC8-49C0-83B7-E9DBC98F1B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7886022-6DC8-49C0-83B7-E9DBC98F1B25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

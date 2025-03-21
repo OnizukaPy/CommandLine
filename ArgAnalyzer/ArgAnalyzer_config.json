@@ -1,0 +1,71 @@
+{
+  "commands": [
+    {
+      "Name": "Sub command",
+      "Description": "Use sub to give new option to the program",
+      "CommandName": "sub",
+      "options": [
+        {
+          "Name": "Help Option",
+          "Aliases": [
+            "--help",
+            "-h",
+            "?"
+          ],
+          "Description": "Option to read command's details",
+          "Flag": true,
+          "Value": null
+        }
+      ],
+      "arguments": []
+    }
+  ],
+  "Name": "ArgAnalyzer",
+  "Description": "Programma di gestione degli argomenti",
+  "CommandName": null,
+  "options": [
+    {
+      "Name": "Help Option",
+      "Aliases": [
+        "--help",
+        "-h",
+        "?"
+      ],
+      "Description": "Option to read command's details",
+      "Flag": true,
+      "Value": null
+    },
+    {
+      "Name": "Program Version",
+      "Aliases": [
+        "--version",
+        "-v"
+      ],
+      "Description": "Option to show del version of the program",
+      "Flag": true,
+      "Value": null
+    },
+    {
+      "Name": "Name Option",
+      "Aliases": [
+        "--name",
+        "-n"
+      ],
+      "Description": "Option to add name to the program",
+      "Flag": false,
+      "Value": null
+    }
+  ],
+  "arguments": [
+    {
+      "Name": "Age Argument",
+      "Aliases": [
+        "age"
+      ],
+      "Description": "Argument to add age to the program",
+      "Flag": false,
+      "Cardinality": "1",
+      "Values": []
+    }
+  ]
+}
