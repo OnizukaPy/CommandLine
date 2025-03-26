@@ -25,5 +25,16 @@ public class ArgsParser {
         _subCommands = _rootCommand.Commands != null ? _rootCommand.Commands : null;
 
     }
+
+    // metodo per ottenere il valore da un comando passato
+    public string GetOptionValue(string[] optionAliases) {
+        List<string> argList = _args != null ? _args.ToList() : new ();
+        for (int i = 0; i < argList.Count; i++) {
+            if (optionAliases.Contains(argList[i])) {
+                return argList[i+1];
+            }
+        }
+        return String.Empty;
+    }
 }
 
