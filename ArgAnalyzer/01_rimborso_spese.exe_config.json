@@ -1,0 +1,89 @@
+{
+  "commands": [],
+  "Name": "01_rimborso_spese.exe",
+  "Description": "Refunds management program",
+  "CommandName": null,
+  "options": [
+    {
+      "Name": "Help Option",
+      "Aliases": [
+        "--help",
+        "-h",
+        "?"
+      ],
+      "Description": "Option to read command's details",
+      "Flag": true,
+      "Value": null
+    },
+    {
+      "Name": "Program Version",
+      "Aliases": [
+        "--version",
+        "-v"
+      ],
+      "Description": "Option to show del version of the program",
+      "Flag": true,
+      "Value": null
+    },
+    {
+      "Name": "Input Option",
+      "Aliases": [
+        "--input",
+        "-i"
+      ],
+      "Description": "Option to add the input file of expenses",
+      "Flag": false,
+      "Value": null
+    },
+    {
+      "Name": "Output Option",
+      "Aliases": [
+        "--output",
+        "-o"
+      ],
+      "Description": "Option to add the output file of report",
+      "Flag": false,
+      "Value": null
+    },
+    {
+      "Name": "Verbose Option",
+      "Aliases": [
+        "--verbose",
+        "-V"
+      ],
+      "Description": "Option activate the verbose mode of the program",
+      "Flag": true,
+      "Value": null
+    },
+    {
+      "Name": "Logging Option",
+      "Aliases": [
+        "--log"
+      ],
+      "Description": "Option activate the Logging mode of the program",
+      "Flag": true,
+      "Value": null
+    },
+    {
+      "Name": "Debug Option",
+      "Aliases": [
+        "--debug",
+        "-d"
+      ],
+      "Description": "Option activate the Debug mode of the program",
+      "Flag": true,
+      "Value": null
+    },
+    {
+      "Name": "Process Folder Option",
+      "Aliases": [
+        "--process-folder",
+        "-pF"
+      ],
+      "Description": "Option to process a Folder with many expenses",
+      "Flag": true,
+      "Value": null
+    }
+  ],
+  "arguments": []
+}

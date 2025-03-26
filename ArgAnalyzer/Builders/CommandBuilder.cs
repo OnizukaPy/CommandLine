@@ -7,28 +7,91 @@ public class CommandBuilder {
     RootCommand? _rootCommand { get; set; }
 
     #region Costruttori
-    public CommandBuilder (string configPath) {
+    public CommandBuilder () {
 
-        if (!String.IsNullOrEmpty(configPath)) {
-            if(File.Exists(configPath)) {
-                LoadConfig(configPath);
-            } else {
-            throw new ConfigFileNotExistsException(configPath);
-        }
+        if (_rootCommand == null) {
+            Build();
         } else {
-            throw new ConfigPathNullException();
+            throw new RootCommandAlradyExistsException();
         }
     }
+    public CommandBuilder (string configPath) {
 
-    public CommandBuilder (RootCommand rootCommand) {
-
-        if (rootCommand != null) {
-            _rootCommand = rootCommand;
+        if (_rootCommand == null) {
+            if (!String.IsNullOrEmpty(configPath)) {
+                if(File.Exists(configPath)) {
+                    LoadConfig(configPath);
+                } else {
+                throw new ConfigFileNotExistsException(configPath);
+            }
+            } else {
+                throw new ConfigPathNullException();
+            }
         } else {
-            throw new RootCommandNullException();
+            throw new RootCommandAlradyExistsException();
         }
     }
     #endregion
+
+    // metodo per creare una configurazione di comandi
+    public void Build () {
+        // creiamo il root command
+        var rootCommand = new RootCommand (
+            name: "01_rimborso_spese.exe",
+            description: "Refunds management program"
+        );
+
+        // aggiungiamo una opzione
+        var inputOption = new Option (
+            name: "Input Option",
+            description: "Option to add the input file of expenses",
+            aliases: ["--input", "-i"],
+            flag: false
+        );
+        rootCommand.AddOption(inputOption);
+
+        var outputOption = new Option (
+            name: "Output Option",
+            description: "Option to add the output file of report",
+            aliases: ["--output", "-o"],
+            flag: false
+        );
+        rootCommand.AddOption(outputOption);
+
+        var verboseOption = new Option (
+            name: "Verbose Option",
+            description: "Option activate the verbose mode of the program",
+            aliases: ["--verbose", "-V"],
+            flag: true
+        );
+        rootCommand.AddOption(verboseOption);
+
+        var logOption = new Option (
+            name: "Logging Option",
+            description: "Option activate the Logging mode of the program",
+            aliases: ["--log"],
+            flag: true
+        );
+        rootCommand.AddOption(logOption);
+
+        var debugOption = new Option (
+            name: "Debug Option",
+            description: "Option activate the Debug mode of the program",
+            aliases: ["--debug", "-d"],
+            flag: true
+        );
+        rootCommand.AddOption(debugOption);
+
+        var processFolderOption = new Option (
+            name: "Process Folder Option",
+            description: "Option to process a Folder with many expenses",
+            aliases: ["--process-folder", "-pF"],
+            flag: true
+        );
+        rootCommand.AddOption(processFolderOption);
+
+        _rootCommand = rootCommand;
+    }
 
     // metodo per salvare la configurazione
     public void SaveRootConfig () {

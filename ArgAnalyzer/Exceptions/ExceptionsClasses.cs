@@ -85,6 +85,13 @@ public class RootCommandNullException : CommandException {
         $"Root Command is Null"
     ) { }
 }
+
+public class RootCommandAlradyExistsException : CommandException {
+
+    public RootCommandAlradyExistsException () : base(
+        $"Root Command alrady Exists"
+    ) { }
+}
 #endregion
 
 #region ArgsParser

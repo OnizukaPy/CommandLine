@@ -5,26 +5,25 @@ public class ArgsParser {
 
     // proprietà
     string[]? _args { set; get; }
-
     // comando di root
-    Command? _rootCommand { get; set; }
+    RootCommand? _rootCommand { get; set; }
+    // RootOptions List
+    // RootArgumentList
+    // SubCommandList
+    List<Command>? _subCommands { get; set; }
 
     // costruttore
-    public ArgsParser (string[] args, Command rootCommand) {
+    public ArgsParser (string[] args, RootCommand rootCommand) {
 
-        if (args != null) {
-            _args = args;
-        } else {
-            _args = null;
-            throw new ArgsNullException();
-        }
+        _args = args != null ? args : null;
+        if (_args == null) throw new ArgsNullException();
 
-        if (rootCommand != null) {
-            _args = args;
-        } else {
-            _rootCommand = null;
-            throw new CommandNullException();
-        }
+        _rootCommand = rootCommand != null ? rootCommand : null;
+        if (_rootCommand == null) throw new CommandNullException();
+
+        // get subcommand List
+        _subCommands = _rootCommand.Commands != null ? _rootCommand.Commands : null;
 
     }
 }
+

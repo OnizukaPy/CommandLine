@@ -2,10 +2,10 @@
 public class RootCommand : Command {
 
     // proprietà
-    public List<Command> commands { get; set; }
+    public List<Command> Commands { get; set; }
     public RootCommand(string name, string description) : base(name, description) {
 
-        commands = new();
+        Commands = new();
 
         // aggiungiamo l'opzione di default --version
         AddOption(new Option (
@@ -19,12 +19,12 @@ public class RootCommand : Command {
 
     // metodo per aggiungere un argomento
     public void AddSubCommand(Command command) {
-        if (command != null && commands != null) {
+        if (command != null && Commands != null) {
             // se l'opzione non è già contenuta e non c'è n'è una con lo stesso nome
-            if (!commands.Contains(command) && !commands.Any(cmd => {
+            if (!Commands.Contains(command) && !Commands.Any(cmd => {
                 return cmd.CommandName != null && cmd.CommandName.Equals(command.CommandName);
                 })) {
-                commands.Add(command);
+                Commands.Add(command);
             } else {
                 throw new ArgumentAlreadyExistsException($"{command.CommandName}");
             }
@@ -59,9 +59,9 @@ public class RootCommand : Command {
         }
 
         stringBuilder.AppendLine($"\nCommands: ");
-        if (commands?.Count() > 0) {
+        if (Commands?.Count() > 0) {
             stringBuilder.Append("");
-            commands.ForEach(cmd => stringBuilder.AppendLine(cmd.ToHelpString(Name)));
+            Commands.ForEach(cmd => stringBuilder.AppendLine(cmd.ToHelpString(Name)));
         }
         return stringBuilder.ToString();
     }
